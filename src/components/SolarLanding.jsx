@@ -71,10 +71,10 @@ const SolarLanding = () => {
       </Canvas>
 
       {/* Overlay instructions */}
-      <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-4 sm:pb-6 md:pb-10">
-        <div className="bg-black/60 border border-red-500 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-sm mx-2 sm:mx-4">
-          <div className="text-red-500 text-[10px] xs:text-xs font-mono tracking-[0.2em] sm:tracking-[0.3em] uppercase text-center">
-            CLICK EARTH TO ENTER
+      <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-6 sm:pb-8 md:pb-12 lg:pb-16">
+        <div className="bg-black/90 backdrop-blur-sm border-2 border-orange-500 px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6 rounded-lg sm:rounded-xl shadow-2xl mx-3 sm:mx-4 md:mx-6 animate-pulse">
+          <div className="text-orange-400 sm:text-orange-500 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-mono tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] uppercase text-center" style={{ textShadow: '0 0 15px rgba(251, 146, 60, 0.9), 0 0 30px rgba(251, 146, 60, 0.6)' }}>
+            ДЭЛХИЙ ДЭЭР ДАР
           </div>
         </div>
       </div>
