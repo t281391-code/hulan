@@ -1,13 +1,15 @@
 import { Suspense, useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import SolarSystem from './SolarSystem';
-import tsengelImage from '../assets/3ac99197-bf68-43c6-8ec2-67be0388e160.jpg';
-import musicFile from '../sound/morningstar - medehgui ( Lyrics Music Video) (mp3cut.net).mp3';
+import tsengelImage from '../assets/069cd828-8eac-48dd-bf79-ef041ce44de8.jpg';
+import musicFile from '../sound/OPOZIT - HAMGIIN SAIHAN N OST (LYRIC VIDEO) (mp3cut.net).mp3';
+import gifFile from '../gif/love.gif';
 
 const SolarLanding = () => {
   const [showValentine, setShowValentine] = useState(false);
   const [hearts, setHearts] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showGif, setShowGif] = useState(false);
   const audioRef = useRef(null);
 
   const handleEarthClick = () => {
@@ -17,6 +19,14 @@ const SolarLanding = () => {
   const handleCloseValentine = () => {
     setShowValentine(false);
     setHearts([]);
+  };
+
+  const handleShowGif = () => {
+    setShowGif(true);
+  };
+
+  const handleCloseGif = () => {
+    setShowGif(false);
   };
 
   const toggleMusic = () => {
@@ -135,11 +145,11 @@ const SolarLanding = () => {
               <div className="relative">
                 <img 
                   src={tsengelImage} 
-                  alt="ХУЛАН+ТҮВШИНБАЯР" 
+                  alt="ЭНХЖИН ЭНХТАМИР" 
                   className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-full border-2 sm:border-2 md:border-4 border-pink-400 shadow-lg"
                 />
                 <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-bold">
-                  ХУЛАН+ТҮВШИНБАЯР
+                  ЭНХЖИН ТАМИРАА
                 </div>
               </div>
             </div>
@@ -175,6 +185,13 @@ const SolarLanding = () => {
                   )}
                 </button>
                 <button
+                  onClick={handleShowGif}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 sm:py-2.5 sm:px-7 md:py-3 md:px-8 rounded-full transition-colors shadow-lg transform hover:scale-105 text-sm sm:text-base flex items-center gap-2"
+                >
+                  <span>🎬</span>
+                  <span>Дараад үз</span>
+                </button>
+                <button
                   onClick={handleCloseValentine}
                   className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-6 sm:py-2.5 sm:px-7 md:py-3 md:px-8 rounded-full transition-colors shadow-lg transform hover:scale-105 text-sm sm:text-base"
                 >
@@ -204,6 +221,36 @@ const SolarLanding = () => {
               {heart.emoji}
             </div>
           ))}
+        </div>
+      )}
+
+      {/* GIF Modal */}
+      {showGif && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-2 sm:p-4 md:p-6"
+          onClick={handleCloseGif}
+        >
+          <div 
+            className="relative max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl w-full mx-2 sm:mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={handleCloseGif}
+              className="absolute -top-2 -right-2 sm:top-2 sm:right-2 md:top-4 md:right-4 text-white/90 hover:text-white text-2xl sm:text-3xl md:text-4xl transition-colors z-10 bg-black/70 hover:bg-black/90 rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center shadow-lg"
+            >
+              ×
+            </button>
+            
+            {/* GIF */}
+            <div className="relative w-full overflow-hidden rounded-lg sm:rounded-xl shadow-2xl">
+              <img 
+                src={gifFile} 
+                alt="GIF" 
+                className="w-full h-auto max-h-[70vh] sm:max-h-[80vh] md:max-h-[85vh] object-contain"
+              />
+            </div>
+          </div>
         </div>
       )}
       
