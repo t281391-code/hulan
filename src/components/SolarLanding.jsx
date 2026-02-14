@@ -1,7 +1,7 @@
 import { Suspense, useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import SolarSystem from './SolarSystem';
-import tsengelImage from '../assets/069cd828-8eac-48dd-bf79-ef041ce44de8.jpg';
+import tsengelImage from '../assets/3ac99197-bf68-43c6-8ec2-67be0388e160.jpg';
 import musicFile from '../sound/OPOZIT - HAMGIIN SAIHAN N OST (LYRIC VIDEO) (mp3cut.net).mp3';
 import gifFile from '../gif/love.gif';
 
@@ -145,11 +145,11 @@ const SolarLanding = () => {
               <div className="relative">
                 <img 
                   src={tsengelImage} 
-                  alt="ЭНХЖИН ЭНХТАМИР" 
+                  alt="ХУЛАН ТҮВШИНБАЯР" 
                   className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-full border-2 sm:border-2 md:border-4 border-pink-400 shadow-lg"
                 />
                 <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-bold">
-                  ЭНХЖИН ТАМИРАА
+                  ХУЛАН ТҮВШИНБАЯР
                 </div>
               </div>
             </div>
