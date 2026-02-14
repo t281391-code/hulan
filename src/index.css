@@ -75,3 +75,44 @@ body {
   animation: heart-float 2s ease-out forwards;
 }
 
+/* Overlay slide in animation for mobile */
+@keyframes overlay-slide-in {
+  0% {
+    transform: translateX(-100%);
+    filter: blur(10px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-20%);
+    filter: blur(5px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.animate-overlay-slide-in {
+  animation: overlay-slide-in 1.5s ease-out forwards;
+}
+
+/* Text blur in animation */
+@keyframes text-blur-in {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.animate-text-blur-in {
+  animation: text-blur-in 2s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
