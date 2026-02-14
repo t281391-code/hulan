@@ -99,8 +99,8 @@ const SolarLanding = () => {
 
       {/* Overlay instructions */}
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center sm:justify-end pb-0 sm:pb-8 md:pb-12 lg:pb-16">
-        <div className="bg-black/95 backdrop-blur-md border-[3px] sm:border-2 border-orange-500 px-6 sm:px-6 md:px-8 lg:px-10 py-5 sm:py-4 md:py-5 lg:py-6 rounded-xl sm:rounded-xl shadow-2xl mx-4 sm:mx-4 md:mx-6 animate-overlay-slide-in sm:animate-pulse w-[95%] sm:w-auto max-w-md">
-          <div className="text-orange-400 sm:text-orange-500 text-3xl sm:text-xl md:text-2xl lg:text-3xl font-bold font-mono tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] text-center leading-tight animate-text-blur-in" style={{ textShadow: '0 0 20px rgba(251, 146, 60, 1), 0 0 40px rgba(251, 146, 60, 0.8), 0 0 60px rgba(251, 146, 60, 0.6)' }}>
+        <div className="bg-black/95 backdrop-blur-md border-[3px] sm:border-2 border-orange-500 px-6 sm:px-6 md:px-8 lg:px-10 py-5 sm:py-4 md:py-5 lg:py-6 rounded-xl sm:rounded-xl shadow-2xl mx-4 sm:mx-4 md:mx-6 sm:animate-pulse w-[95%] sm:w-auto max-w-md" style={{ filter: 'blur(0px)' }}>
+          <div className="text-orange-400 sm:text-orange-500 text-3xl sm:text-xl md:text-2xl lg:text-3xl font-bold font-mono tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] text-center leading-tight blur-[2px] sm:blur-0" style={{ textShadow: '0 0 20px rgba(251, 146, 60, 1), 0 0 40px rgba(251, 146, 60, 0.8), 0 0 60px rgba(251, 146, 60, 0.6)' }}>
             <span className="block sm:hidden">Татаад дэлхий дээр дар</span>
             <span className="hidden sm:block uppercase">ДЭЛХИЙ ДЭЭР ДАР</span>
           </div>
