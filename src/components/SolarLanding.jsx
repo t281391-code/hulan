@@ -1,11 +1,14 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import SolarSystem from './SolarSystem';
 import tsengelImage from '../assets/tsengel.jpg';
+import musicFile from '../sound/thunderz-tengri-jureem-official-music-video_HHDdgD0V.mp3';
 
 const SolarLanding = () => {
   const [showValentine, setShowValentine] = useState(false);
   const [hearts, setHearts] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
 
   const handleEarthClick = () => {
     setShowValentine(true);
@@ -15,6 +18,30 @@ const SolarLanding = () => {
     setShowValentine(false);
     setHearts([]);
   };
+
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current.play().catch(err => {
+          console.error('Error playing audio:', err);
+        });
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  // Cleanup audio on unmount
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   const handleMouseMove = (e) => {
     if (!showValentine) return;
@@ -105,7 +132,7 @@ const SolarLanding = () => {
                 <img 
                   src={tsengelImage} 
                   alt="Цэнгэл" 
-                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-full border-2 sm:border-3 md:border-4 border-pink-400 shadow-lg"
+                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-full border-2 sm:border-2 md:border-4 border-pink-400 shadow-lg"
                 />
                 <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-bold">
                   Цэнгэл
@@ -126,7 +153,23 @@ const SolarLanding = () => {
                  
                  💖
               </p>
-              <div className="pt-2 sm:pt-3 md:pt-4">
+              <div className="pt-2 sm:pt-3 md:pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center">
+                <button
+                  onClick={toggleMusic}
+                  className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 sm:py-2.5 sm:px-7 md:py-3 md:px-8 rounded-full transition-colors shadow-lg transform hover:scale-105 text-sm sm:text-base flex items-center gap-2"
+                >
+                  {isPlaying ? (
+                    <>
+                      <span>⏸️</span>
+                      <span>Дуу зогсоох</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>▶️</span>
+                      <span>Дуу тоглуулах</span>
+                    </>
+                  )}
+                </button>
                 <button
                   onClick={handleCloseValentine}
                   className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-6 sm:py-2.5 sm:px-7 md:py-3 md:px-8 rounded-full transition-colors shadow-lg transform hover:scale-105 text-sm sm:text-base"
@@ -159,6 +202,16 @@ const SolarLanding = () => {
           ))}
         </div>
       )}
+      
+      {/* Audio element */}
+      <audio
+        ref={audioRef}
+        src={musicFile}
+        loop
+        onEnded={() => setIsPlaying(false)}
+        onPause={() => setIsPlaying(false)}
+        onPlay={() => setIsPlaying(true)}
+      />
     </div>
   );
 };
