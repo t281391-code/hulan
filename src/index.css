@@ -116,26 +116,22 @@ body {
   opacity: 0;
 }
 
-/* Mobile overlay slide animation with heavy blur */
+/* Mobile overlay slide animation */
 @keyframes mobile-overlay-slide {
   0% {
     transform: translateX(-100%);
-    filter: blur(25px);
     opacity: 0;
   }
   30% {
     transform: translateX(-50%);
-    filter: blur(20px);
     opacity: 0.5;
   }
   60% {
     transform: translateX(-10%);
-    filter: blur(15px);
     opacity: 0.8;
   }
   100% {
     transform: translateX(0);
-    filter: blur(15px);
     opacity: 1;
   }
 }
@@ -148,7 +144,6 @@ body {
 @media (min-width: 640px) {
   .animate-mobile-overlay-slide {
     animation: none;
-    filter: blur(0px) !important;
   }
 }
 
