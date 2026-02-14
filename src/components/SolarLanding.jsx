@@ -98,9 +98,9 @@ const SolarLanding = () => {
       </Canvas>
 
       {/* Overlay instructions */}
-      <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-6 sm:pb-8 md:pb-12 lg:pb-16">
-        <div className="bg-black/90 backdrop-blur-sm border-2 border-orange-500 px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6 rounded-lg sm:rounded-xl shadow-2xl mx-3 sm:mx-4 md:mx-6 animate-pulse">
-          <div className="text-orange-400 sm:text-orange-500 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-mono tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] uppercase text-center" style={{ textShadow: '0 0 15px rgba(251, 146, 60, 0.9), 0 0 30px rgba(251, 146, 60, 0.6)' }}>
+      <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-8 sm:pb-8 md:pb-12 lg:pb-16">
+        <div className="bg-black/95 backdrop-blur-md border-[3px] sm:border-2 border-orange-500 px-6 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-4 md:py-5 lg:py-6 rounded-xl sm:rounded-xl shadow-2xl mx-4 sm:mx-4 md:mx-6 animate-pulse w-[90%] sm:w-auto">
+          <div className="text-orange-400 sm:text-orange-500 text-2xl sm:text-xl md:text-2xl lg:text-3xl font-bold font-mono tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] uppercase text-center leading-tight" style={{ textShadow: '0 0 20px rgba(251, 146, 60, 1), 0 0 40px rgba(251, 146, 60, 0.8), 0 0 60px rgba(251, 146, 60, 0.6)' }}>
             ДЭЛХИЙ ДЭЭР ДАР
           </div>
         </div>
@@ -143,15 +143,15 @@ const SolarLanding = () => {
             {/* Greeting Message */}
             <div className="text-center space-y-2 sm:space-y-3 md:space-y-4">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
-                💕 Valentine's Day 💕
+                <span className="text-2xl sm:text-3xl md:text-4xl">💕</span> Valentine's Day <span className="text-2xl sm:text-3xl md:text-4xl">💕</span>
               </h2>
               <p className="text-lg sm:text-xl text-pink-200 font-semibold">
                 
               </p>
-              <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed px-2 sm:px-0">
+              <p className="text-base sm:text-base md:text-lg text-white/90 leading-relaxed px-2 sm:px-0">
                Валентины баярын мэнд хүргэе! 
-                 
-                 💖
+                 <br className="sm:hidden" />
+                 <span className="text-2xl sm:text-xl md:text-2xl inline-block mt-1 sm:mt-0">💖</span>
               </p>
               <div className="pt-2 sm:pt-3 md:pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center">
                 <button
